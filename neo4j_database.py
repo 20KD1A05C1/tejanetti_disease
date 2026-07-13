@@ -10,4 +10,4 @@ class Neo4jDatabase:
     def query(self, query, parameters=None):
         with self.driver.session() as session:
             result = session.run(query, parameters)
-            return [record for record in result]
+            return [record.data() for record in result]
